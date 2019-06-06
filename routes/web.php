@@ -42,7 +42,7 @@ Route::get('/cart', 'ProductController@showCart');
 Route::get('/viewCart', 'CartController@index');
 Route::post('/order', 'CartController@order')->name('cartOrder');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function() {
     Route::get('/', 'HomeController@dashboard');
     Route::resource('/companies', 'CompanyController');
     Route::resource('/services', 'ServiceController');
